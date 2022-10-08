@@ -25,7 +25,7 @@ ApplicationWindow{
         }
     }
     Button {
-           text: qsTr("Hello World")
+           text: solModel.name
            anchors.horizontalCenter: parent.horizontalCenter
            anchors.verticalCenter: parent.verticalCenter
        }

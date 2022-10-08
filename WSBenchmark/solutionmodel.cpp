@@ -5,3 +5,9 @@ solutionModel::solutionModel(QObject *parent)
 {
 
 }
+
+QString solutionModel::nameGet() const
+{
+    QString name = "MySolution";
+    return name;
+}

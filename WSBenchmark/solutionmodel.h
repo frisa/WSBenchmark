@@ -6,10 +6,13 @@
 class solutionModel : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString name READ nameGet NOTIFY nameChanged)
 public:
     explicit solutionModel(QObject *parent = nullptr);
+    QString nameGet() const;
 
 signals:
+    void nameChanged(QString name);
 
 };
 
