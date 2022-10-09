@@ -26,7 +26,13 @@ ApplicationWindow{
         }
     }
     ChartView{
-
+        id: chart1
+        anchors.fill: parent
+        LineSeries{
+            name: "CPU Load"
+            XYPoint {x:0; y: 0}
+            XYPoint {x:2; y: 1}
+        }
     }
 
     Button {

@@ -12,7 +12,7 @@ class Measurement
 public:
     Measurement();
 private:
-    std::vector<unique_ptr<MeasurementPoint<int>>> _data;
+    std::vector<MeasurementPoint<int>> _data;
 };
 
 #endif // MEASUREMENT_H

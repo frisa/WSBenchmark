@@ -3,6 +3,7 @@
 
 Measurement::Measurement()
 {
-    auto point = std::make_unique<MeasurementPoint<int>>(1,3);
-    _data.emplace_back(point);
+    auto point = MeasurementPoint<int>(1,3);
+    _data.push_back(point);
+    _data.push_back(MeasurementPoint<int>(2,4));
 }
