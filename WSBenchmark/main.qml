@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.5
 import QtQuick.Window 2.15
+import QtCharts 2.3
 
 ApplicationWindow{
     visible: true
@@ -24,6 +25,10 @@ ApplicationWindow{
             }
         }
     }
+    ChartView{
+
+    }
+
     Button {
            text: solModel.name
            anchors.horizontalCenter: parent.horizontalCenter

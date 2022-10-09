@@ -6,6 +6,7 @@ QT += quick
 
 SOURCES += \
         main.cpp \
+        measurement.cpp \
         solutionmodel.cpp
 
 RESOURCES += qml.qrc
@@ -22,4 +23,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    measurement.h \
+    measurementpoint.h \
     solutionmodel.h
