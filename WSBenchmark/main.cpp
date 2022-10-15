@@ -20,8 +20,6 @@ int main(int argc, char *argv[])
 
     solutionModel solModel;
     engine.rootContext()->setContextProperty("solModel", &solModel);
-
-
     engine.load(url);
     return app.exec();
 }

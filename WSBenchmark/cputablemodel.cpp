@@ -3,6 +3,14 @@
 CpuTableModel::CpuTableModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
+    // load some default data
+    unsigned int columnCount = 2;
+    unsigned int rowCount = 5;
+
+    for (unsigned int idx = 0; idx<rowCount; idx++)
+    {
+
+    }
 }
 
 QVariant CpuTableModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -12,6 +20,7 @@ QVariant CpuTableModel::headerData(int section, Qt::Orientation orientation, int
 
 int CpuTableModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     if (parent.isValid())
         return 0;
 
@@ -20,6 +29,7 @@ int CpuTableModel::rowCount(const QModelIndex &parent) const
 
 int CpuTableModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     if (parent.isValid())
         return 0;
 

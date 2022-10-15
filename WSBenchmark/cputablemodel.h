@@ -20,6 +20,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 private:
+
 };
 
 #endif // CPUTABLEMODEL_H

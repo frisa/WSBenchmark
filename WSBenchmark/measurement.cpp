@@ -3,7 +3,14 @@
 
 Measurement::Measurement()
 {
-    auto point = MeasurementPoint<int>(1,3);
-    _data.push_back(point);
-    _data.push_back(MeasurementPoint<int>(2,4));
+    const size_t sizeOfData = 100;
+    _data.reserve(sizeOfData);
+}
+
+Measurement::Measurement(std::initializer_list<MeasurementPoint<int> > lst)
+{
+    for(auto itm: lst)
+    {
+        _data.push_back(itm);
+    }
 }

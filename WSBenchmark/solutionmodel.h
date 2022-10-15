@@ -13,7 +13,7 @@ public:
     QString nameGet() const;
 
 private:
-    Measurement _measurement;
+    Measurement* _measurement;
 
 signals:
     void nameChanged(QString name);
