@@ -2,6 +2,8 @@
 #define CPUTABLEMODEL_H
 
 #include <QAbstractTableModel>
+#include <measurementpoint.h>
+#include <initializer_list>
 
 class CpuTableModel : public QAbstractTableModel
 {
@@ -9,6 +11,7 @@ class CpuTableModel : public QAbstractTableModel
 
 public:
     explicit CpuTableModel(QObject *parent = nullptr);
+    CpuTableModel(std::initializer_list<MeasurementPoint<int>> lst = {{0,0}});
 
     // Header:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
@@ -20,6 +23,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 private:
+    std::vector<MeasurementPoint<int>> _data;
 
 };
 

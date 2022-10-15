@@ -1,15 +1,17 @@
 #include "cputablemodel.h"
+#include "initializer_list"
+#include "measurementpoint.h"
 
 CpuTableModel::CpuTableModel(QObject *parent)
     : QAbstractTableModel(parent)
 {
-    // load some default data
-    unsigned int columnCount = 2;
-    unsigned int rowCount = 5;
+}
 
-    for (unsigned int idx = 0; idx<rowCount; idx++)
+CpuTableModel::CpuTableModel(std::initializer_list<MeasurementPoint<int>> lst)
+{
+    for (const auto itm: lst)
     {
-
+        _data.emplace_back(itm);
     }
 }
 
@@ -39,8 +41,15 @@ int CpuTableModel::columnCount(const QModelIndex &parent) const
 QVariant CpuTableModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
+    {
         return QVariant();
-
-    // FIXME: Implement me!
-    return QVariant();
+    }
+    if (role == Qt::DisplayRole)
+    {
+        return _data[index.row()]->at(index.column());
+    }
+    else
+    {
+        return QVariant();
+    }
 }

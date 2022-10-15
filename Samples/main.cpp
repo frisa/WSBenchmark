@@ -1,17 +1,16 @@
-#include <QApplication>
+#include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include <QQmlContext>
-
-// data models
-#include "solutionmodel.h"
-#include "cputablemodel.h"
+#include "todomodel.h"
 
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
+
+    qmlRegisterType<ToDoModel>("ToDo", 1, 0, "ToDoModel");
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
@@ -19,14 +18,7 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
-
-    // initialization of data models
-    solutionModel solModel;
-    CpuTableModel cpuModel{{1,2}, {3,4}};
-
-    engine.rootContext()->setContextProperty("solModel", &solModel);
-    engine.rootContext()->setContextProperty("cpuModel", &cpuModel);
-
     engine.load(url);
+
     return app.exec();
 }
