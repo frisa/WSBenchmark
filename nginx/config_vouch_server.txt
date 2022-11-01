@@ -1,0 +1,18 @@
+References:
+===========
+https://github.com/vouch/vouch-proxy
+https://developer.okta.com/blog/2018/08/28/nginx-auth-request
+https://tech.ginnojo.jp/index.php/web/sso-nginx-and-vouch-proxy
+
+Install GO
+===========
+sudo apt install gccgo-go
+sudo apt install golang-go
+
+export PATH=$PATH:/usr/lib/go/bin
+
+Run the vouch
+==============
+  ./do.sh goget
+  ./do.sh build
+  ./vouch-proxy
